@@ -12,7 +12,9 @@ name: github.com/opspec-pkgs/object.has-key
 opspec: 0.1.6
 outputs:
   exists:
-    boolean:
+    string:
+      constraints:
+        enum: ['true', 'false']
       description: if key exists
 run:
   container:
