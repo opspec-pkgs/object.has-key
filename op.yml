@@ -1,0 +1,29 @@
+description: checks if object has the provided key (property)
+inputs:
+  object:
+    object:
+      description: object to check for key
+  key:
+    string:
+      description: key to check object for
+      constraints:
+        minLength: 1
+name: github.com/opspec-pkgs/object.has-key
+opspec: 0.1.6
+outputs:
+  exists:
+    boolean:
+      description: if key exists
+run:
+  container:
+    image: { ref: 'node:12.1.0-alpine' }
+    cmd:
+      - node
+      - /cmd.js
+    envVars:
+      key:
+    files:
+      /cmd.js:
+      /object.json: $(object)
+      /exists: $(exists)
+version: 1.0.0
